@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Torch7/Lua Wrapper for ROS</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>torch-ros</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Metamethods">Metamethods</a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../classes/AsyncSpinner.html">AsyncSpinner</a></li>
+  <li><a href="../classes/CallbackQueue.html">CallbackQueue</a></li>
+  <li><strong>Duration</strong></li>
+  <li><a href="../classes/ActionClient.html">ActionClient</a></li>
+  <li><a href="../classes/SimpleActionServer.html">SimpleActionServer</a></li>
+  <li><a href="../classes/console.html">console</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/ros.actionlib.html">ros.actionlib</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>Duration</code></h1>
+<p>ROS data class to handle time intervals and durations</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Metamethods">Metamethods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Duration:__init">Duration:__init (_1, _2)</a></td>
+	<td class="summary">Construct a time duration</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Duration:cdata">Duration:cdata ()</a></td>
+	<td class="summary">Get the underlying data structure</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:clone">Duration:clone ()</a></td>
+	<td class="summary">Creates a deep copy of the object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:set">Duration:set (_1, _2)</a></td>
+	<td class="summary">Set the time value</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:get">Duration:get ()</a></td>
+	<td class="summary">Get the time value as seconds and nanoseconds</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:assign">Duration:assign ()</a></td>
+	<td class="summary">Assign operation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:get_sec">Duration:get_sec ()</a></td>
+	<td class="summary">Get the seconds part of the stored duration</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:set_sec">Duration:set_sec (sec)</a></td>
+	<td class="summary">Set duration in seconds</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:get_nsec">Duration:get_nsec ()</a></td>
+	<td class="summary">Get the nanoseconds part of the stored duration</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:set_nsec">Duration:set_nsec (nsec)</a></td>
+	<td class="summary">Set the nanoseconds part of the duration</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:add">Duration:add (other, result)</a></td>
+	<td class="summary">Add two durations and return the result</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:sub">Duration:sub (other, result)</a></td>
+	<td class="summary">Substract a duration from this and return the result</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:mul">Duration:mul (other, result)</a></td>
+	<td class="summary">Multiply a duration to this and return the result</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:toSec">Duration:toSec ()</a></td>
+	<td class="summary">Converts the stored duration to seconds with fractional part</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:fromSec">Duration:fromSec (sec)</a></td>
+	<td class="summary">Stores a (fractional) number of seconds in this data structure</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:isZero">Duration:isZero ()</a></td>
+	<td class="summary">Check if the Duration is zero</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Duration:sleep">Duration:sleep ()</a></td>
+	<td class="summary">Sleep for the (fractional) number of seconds stored in this data structure</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Metamethods"></a>Metamethods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Duration:__init"></a>
+    <strong>Duration:__init (_1, _2)</strong>
+    </dt>
+    <dd>
+    Construct a time duration
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">_1</span>
+         number or ros.Duration; if number: time duration in secons, fractional number possible
+        </li>
+        <li><span class="parameter">_2</span>
+         number, optional; If present, _1 represends the seconds and _2 represends the nanoseconds
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Duration:cdata"></a>
+    <strong>Duration:cdata ()</strong>
+    </dt>
+    <dd>
+    Get the underlying data structure
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:clone"></a>
+    <strong>Duration:clone ()</strong>
+    </dt>
+    <dd>
+    Creates a deep copy of the object
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        A copy of the object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:set"></a>
+    <strong>Duration:set (_1, _2)</strong>
+    </dt>
+    <dd>
+    Set the time value
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">_1</span>
+         number or ros.Duration; if number: time duration in secons, fractional number possible
+        </li>
+        <li><span class="parameter">_2</span>
+         number, optional; If present, _1 represends the seconds and _2 represends the nanoseconds
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:get"></a>
+    <strong>Duration:get ()</strong>
+    </dt>
+    <dd>
+    Get the time value as seconds and nanoseconds
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+        seconds, number</li>
+        <li>
+        nanoseconds, number</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:assign"></a>
+    <strong>Duration:assign ()</strong>
+    </dt>
+    <dd>
+    Assign operation
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:get_sec"></a>
+    <strong>Duration:get_sec ()</strong>
+    </dt>
+    <dd>
+    Get the seconds part of the stored duration
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        seconds, number
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:set_sec"></a>
+    <strong>Duration:set_sec (sec)</strong>
+    </dt>
+    <dd>
+    Set duration in seconds
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sec</span>
+         number, seconds
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:get_nsec"></a>
+    <strong>Duration:get_nsec ()</strong>
+    </dt>
+    <dd>
+    Get the nanoseconds part of the stored duration
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        nanoseconds seconds, number
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:set_nsec"></a>
+    <strong>Duration:set_nsec (nsec)</strong>
+    </dt>
+    <dd>
+    Set the nanoseconds part of the duration
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">nsec</span>
+         number, nanoseconds
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:add"></a>
+    <strong>Duration:add (other, result)</strong>
+    </dt>
+    <dd>
+    Add two durations and return the result
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">other</span>
+         The value to add, either the number of seconds (fractional numbers possible) or a ros:Duration
+        </li>
+        <li><span class="parameter">result</span>
+         ros:Duration, optional; If presend, the sum is assigned to result instead of creating a new instance of Duration
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:sub"></a>
+    <strong>Duration:sub (other, result)</strong>
+    </dt>
+    <dd>
+    Substract a duration from this and return the result
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">other</span>
+         The value to substract, either the number of seconds (fractional numbers possible) or a ros:Duration
+        </li>
+        <li><span class="parameter">result</span>
+         ros:Duration, optional; If presend, the difference is assigned to result instead of creating a new instance of Duration
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:mul"></a>
+    <strong>Duration:mul (other, result)</strong>
+    </dt>
+    <dd>
+    Multiply a duration to this and return the result
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">other</span>
+         The value to multiply with, either the number of seconds (fractional numbers possible) or a ros:Duration
+        </li>
+        <li><span class="parameter">result</span>
+         ros:Duration, optional; If presend, the product is assigned to result instead of creating a new instance of Duration
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:toSec"></a>
+    <strong>Duration:toSec ()</strong>
+    </dt>
+    <dd>
+    Converts the stored duration to seconds with fractional part
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Number of seconds
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:fromSec"></a>
+    <strong>Duration:fromSec (sec)</strong>
+    </dt>
+    <dd>
+    Stores a (fractional) number of seconds in this data structure
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sec</span>
+         Number of seconds
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:isZero"></a>
+    <strong>Duration:isZero ()</strong>
+    </dt>
+    <dd>
+    Check if the Duration is zero
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Duration:sleep"></a>
+    <strong>Duration:sleep ()</strong>
+    </dt>
+    <dd>
+    Sleep for the (fractional) number of seconds stored in this data structure
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-06-15 16:39:56 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Torch7/Lua Wrapper for ROS</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>torch-ros</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Metamethods">Metamethods</a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../classes/AsyncSpinner.html">AsyncSpinner</a></li>
+  <li><strong>CallbackQueue</strong></li>
+  <li><a href="../classes/Duration.html">Duration</a></li>
+  <li><a href="../classes/ActionClient.html">ActionClient</a></li>
+  <li><a href="../classes/SimpleActionServer.html">SimpleActionServer</a></li>
+  <li><a href="../classes/console.html">console</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/ros.actionlib.html">ros.actionlib</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>CallbackQueue</code></h1>
+<p>Callback queue to handle the callbacks within ROS</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Metamethods">Metamethods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:__init">CallbackQueue:__init (enabled)</a></td>
+	<td class="summary">Constructor</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:cdata">CallbackQueue:cdata ()</a></td>
+	<td class="summary">Get the underlying c++ instance</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:registerSpinCallback">CallbackQueue:registerSpinCallback (fn, round)</a></td>
+	<td class="summary">TODO: docu</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:unregisterSpinCallback">CallbackQueue:unregisterSpinCallback (fn, round)</a></td>
+	<td class="summary">TODO: docu</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:callSpinCallbacks">CallbackQueue:callSpinCallbacks ()</a></td>
+	<td class="summary">TODO: docu</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:callOne">CallbackQueue:callOne (timeout)</a></td>
+	<td class="summary">Pop a single callback off the front of the queue and invoke it.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:callAvailable">CallbackQueue:callAvailable (timeout, no_spin_callbacks)</a></td>
+	<td class="summary">Invoke all callbacks currently in the queue.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:waitCallAvailable">CallbackQueue:waitCallAvailable (timeout)</a></td>
+	<td class="summary">Waits until the next callback is enqueued or the timeout is expired</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:isEmpty">CallbackQueue:isEmpty ()</a></td>
+	<td class="summary">Returns whether or not the queue is empty</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:clear">CallbackQueue:clear ()</a></td>
+	<td class="summary">Removes all callbacks from the queue.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:enable">CallbackQueue:enable ()</a></td>
+	<td class="summary">Enable the queue</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:disable">CallbackQueue:disable ()</a></td>
+	<td class="summary">Disable the queue, meaning any calls to addCallback() will have no effect.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CallbackQueue:isEnabled">CallbackQueue:isEnabled ()</a></td>
+	<td class="summary">Returns whether or not this queue is enabled.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Metamethods"></a>Metamethods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "CallbackQueue:__init"></a>
+    <strong>CallbackQueue:__init (enabled)</strong>
+    </dt>
+    <dd>
+    Constructor
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">enabled</span>
+         bool, optional, default=true indicating if the queue is enabled or disabled after construction
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "CallbackQueue:cdata"></a>
+    <strong>CallbackQueue:cdata ()</strong>
+    </dt>
+    <dd>
+    Get the underlying c++ instance
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        pointer to the c++ instance
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:registerSpinCallback"></a>
+    <strong>CallbackQueue:registerSpinCallback (fn, round)</strong>
+    </dt>
+    <dd>
+    TODO: docu
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+
+
+
+        </li>
+        <li><span class="parameter">round</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:unregisterSpinCallback"></a>
+    <strong>CallbackQueue:unregisterSpinCallback (fn, round)</strong>
+    </dt>
+    <dd>
+    TODO: docu
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+
+
+
+        </li>
+        <li><span class="parameter">round</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:callSpinCallbacks"></a>
+    <strong>CallbackQueue:callSpinCallbacks ()</strong>
+    </dt>
+    <dd>
+    TODO: docu
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:callOne"></a>
+    <strong>CallbackQueue:callOne (timeout)</strong>
+    </dt>
+    <dd>
+    Pop a single callback off the front of the queue and invoke it.  If the callback was not ready to be called, pushes it back onto the queue.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timeout</span>
+         Timeout for the callback, either in seconds (fractional numbers like 1.5 possible) or as an instance of ros:Duration
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:callAvailable"></a>
+    <strong>CallbackQueue:callAvailable (timeout, no_spin_callbacks)</strong>
+    </dt>
+    <dd>
+    Invoke all callbacks currently in the queue.
+ If a callback was not ready to be called, pushes it back onto the queue.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timeout</span>
+         Timeout for the callback, either in seconds (fractional numbers like 1.5 possible) or as an instance of ros:Duration
+        </li>
+        <li><span class="parameter">no_spin_callbacks</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:waitCallAvailable"></a>
+    <strong>CallbackQueue:waitCallAvailable (timeout)</strong>
+    </dt>
+    <dd>
+    Waits until the next callback is enqueued or the timeout is expired
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timeout</span>
+         Timeout for the callback, either in seconds (fractional numbers like 1.5 possible) or as an instance of ros:Duration
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool, true if a callback is enqueued, false if the queue is disabled or the timeout expired
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:isEmpty"></a>
+    <strong>CallbackQueue:isEmpty ()</strong>
+    </dt>
+    <dd>
+    Returns whether or not the queue is empty
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool, true if queue is empty, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:clear"></a>
+    <strong>CallbackQueue:clear ()</strong>
+    </dt>
+    <dd>
+    Removes all callbacks from the queue.  Does not wait for calls currently in progress to finish.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:enable"></a>
+    <strong>CallbackQueue:enable ()</strong>
+    </dt>
+    <dd>
+    Enable the queue
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:disable"></a>
+    <strong>CallbackQueue:disable ()</strong>
+    </dt>
+    <dd>
+    Disable the queue, meaning any calls to addCallback() will have no effect.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CallbackQueue:isEnabled"></a>
+    <strong>CallbackQueue:isEnabled ()</strong>
+    </dt>
+    <dd>
+    Returns whether or not this queue is enabled.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool, true if the queue is empty
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-06-15 16:39:56 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
